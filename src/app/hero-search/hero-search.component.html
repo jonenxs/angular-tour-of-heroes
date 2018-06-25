@@ -1,0 +1,15 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+
+  <!--每当用户在文本框中输入时，这个事件绑定就会使用文本框的值（搜索词）调用 search() 函数。
+  searchTerms 变成了一个能发出搜索词的稳定的流。-->
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
